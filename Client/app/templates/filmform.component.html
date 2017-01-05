@@ -1,0 +1,51 @@
+<br><br><br><br><br>
+<form (ngSubmit)="onSubmit()" #filmForm="ngForm" role="form" class="col-md-6 col-lg-6">
+    <legend>Nouveau film</legend>
+
+    <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" class="form-control" id="titre" [(ngModel)]="film.titre" name="titre" required>
+    </div>
+
+    <div class="form-group">
+        <label for="categorie">Categorie</label>
+        <select id="categorie" class="form-control" [(ngModel)]="film.categorie" name="categorie" required>
+            <option *ngFor="let categorie of categories" [ngValue]="categorie">
+                {{categorie.libelleCat}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="realisateur">Réalisateur</label>
+        <select id="realisateur" class="form-control" [(ngModel)]="film.realisateur" name="realisateur" required>
+            <option *ngFor="let realisateur of realisateurs" [ngValue]="realisateur">
+                {{realisateur.nomRea}} {{realisateur.prenRea}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="duree">Durée</label>
+        <input type="number" class="form-control" id="duree" [(ngModel)]="film.duree" name="duree" required>
+    </div>
+
+    <div class="form-group">
+        <label for="dateSortie">Date sortie</label>
+        <input type="date" class="form-control" id="dateSortie" [(ngModel)]="film.dateSortie" name="dateSortie" required>
+    </div>
+
+    <div class="form-group">
+        <label for="budget">Budget</label>
+        <input type="number" class="form-control" id="budget" [(ngModel)]="film.budget" name="budget" required>
+    </div>
+
+    <div class="form-group">
+        <label for="montantRecette">Montant Recette</label>
+        <input type="number" class="form-control" id="montantRecette" [(ngModel)]="film.montantRecette" name="montantRecette" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!filmForm.form.valid">Ajouter</button>
+    <button type="button" class="btn btn-danger" (click)="goBack()">Annuler</button>
+
+</form>

@@ -1,0 +1,31 @@
+<br><br><br><br><br><br>
+<form (ngSubmit)="onSubmit()" #personnageForm="ngForm" role="form" class="col-md-6 col-lg-6">
+    <legend>Nouveau Personnage</legend>
+
+    <div class="form-group">
+        <label for="nomPers">Nom</label>
+        <input type="text" class="form-control" id="nomPers" [(ngModel)]="personnage.nomPers" name="nomPers" required>
+    </div>
+
+    <div class="form-group">
+        <label for="film">Choix parmis les films</label>
+        <select id="film" class="form-control" [(ngModel)]="personnage.noFilm" name="film" required>
+            <option *ngFor="let film of films" [ngValue]="film">
+                {{film.titre}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="acteur">hoix parmis les acteurs</label>
+        <select id="acteur" class="form-control" [(ngModel)]="personnage.noAct" name="acteur" required>
+            <option *ngFor="let acteur of acteurs" [ngValue]="acteur">
+                {{acteur.nomAct}} {{acteur.prenAct}}
+            </option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!personnageForm.form.valid">Ajouter</button>
+    <button type="button" class="btn btn-danger" (click)="goBack()">Annuler</button>
+
+</form>

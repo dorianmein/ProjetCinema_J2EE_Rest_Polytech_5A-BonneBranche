@@ -1,0 +1,24 @@
+<br><br><br><br><br><br>
+<div class="container" >
+    <a type="button" class="btn btn-primary" [routerLink]="['add']">
+        Nouveau personnage <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+<table class="table-striped">
+    <thead>
+        <tr>
+            <th>Film</th>
+            <th>Acteur</th>
+            <th>Personnage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let personnage of personnages">
+            <td>{{getFilm(personnage.noFilm)}}</td>
+            <td>{{getActeur(personnage.noAct)}}</td>
+            <td>{{personnage.nomPers}}</td>
+        </tr>
+    </tbody>
+    <h1 ng-if="errorMessage">{{errorMessage}}</h1>
+
+</table>
+</div>
